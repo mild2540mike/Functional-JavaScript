@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>factorial 1</title>
+  </head>
+  <body>
+    <script>
+      var f = [];
+      var n = 6;
+
+      //factorial #1
+      function factorial(n) {
+        if (n == 0 || n == 1) return 1;
+        if (f > 0) return f;
+        return (f = factorial(n - 1) * n);
+      }
+
+      answer = factorial(n);
+      console.log("The factorial of " + n + " = " + answer);
+
+      //factorial #2
+      function factorial2(n) {
+        return n != 1 ? factorial(n - 1) : 1;
+      }
+      answer = factorial2(n);
+      console.log("The factorial of " + n + " = " + answer);
+
+      //factorial #3
+      function factorial3(n) {
+        let answer = 1;
+        if (n == 0 || n == 1) {
+          return answer;
+        } else {
+          for (var i = n; i >= 1; i--) {
+            answer = answer * i;
+          }
+          return answer;
+        }
+      }
+      answer = factorial3(n);
+      console.log("The factorial of " + n + " = " + answer);
+
+      //preformance test
+      var iterations = 10000000;
+      console.time("Function #1");
+      for (var i = 0; i < iterations; i++) {
+        factorial(n);
+      }
+      console.timeEnd("Function #1");
+
+      console.time("Function #2");
+      for (var i = 0; i < iterations; i++) {
+        factorial2(n);
+      }
+      console.timeEnd("Function #2");
+
+      console.time("Function #3");
+      for (var i = 0; i < iterations; i++) {
+        factorial3(n);
+      }
+      console.timeEnd("Function #3");
+    </script>
+  </body>
+</html>
